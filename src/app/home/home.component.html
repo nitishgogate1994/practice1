@@ -1,0 +1,79 @@
+<form #inputForm="ngForm" (ngSubmit)="submit()">
+    <div class="width-50 mt-10">
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" [(ngModel)]="homeForm.fName" #fName="ngModel" name="fName"
+                pattern="[a-zA-Z ]*" required>
+            <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" class="alert">
+                <div *ngIf="fName.errors?.['required']" class="alert">
+                    Full Name is required.
+                </div>
+                <div *ngIf="fName.errors?.['pattern']" class="alert">
+                    Please enter a valid Full Name
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="homeForm.lName" #lName="ngModel" name="lName"
+                pattern="[a-zA-Z ]*" required>
+            <div *ngIf="lName.invalid && (lName.dirty || lName.touched)" class="alert">
+                <div *ngIf="lName.errors?.['required']">
+                    Full Name is required.
+                </div>
+                <div *ngIf="lName.errors?.['pattern']" class="alert">
+                    Please enter a valid Last Name
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" [(ngModel)]="homeForm.dob" name="dob" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" [(ngModel)]="homeForm.gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input type="number" class="form-control" [(ngModel)]="homeForm.mNumber" name="mNumber" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="homeForm.email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Street 1</label>
+            <input type="textarea" class="form-control" [(ngModel)]="homeForm.street1" name="street1" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Street 2</label>
+            <input type="textarea" class="form-control" [(ngModel)]="homeForm.street2" name="street2" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" [(ngModel)]="homeForm.city" name="city" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">State</label>
+            <input type="text" class="form-control" [(ngModel)]="homeForm.state" name="state" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Zip code</label>
+            <input type="text" class="form-control" [(ngModel)]="homeForm.zipCode" name="zipCode" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Country</label>
+            <select class="form-control" [(ngModel)]="homeForm.country" name="country" required>
+                <option value="India">India</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="China">China</option>
+                <option value="Bhutan">Bhutan</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="!inputForm.valid">Submit</button>
+    </div>
+</form>
